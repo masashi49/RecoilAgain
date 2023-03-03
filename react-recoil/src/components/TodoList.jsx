@@ -1,12 +1,15 @@
 import React, { useState } from "react";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { todoListState } from "../atom";
+import { filterdTodoListState } from "../selector";
 import { getId } from "../lib/getId";
 import TodoListStats from "./TodoListStats";
 import TodoItem from "./TodoItem";
+import TodoListFilters from "./TodoListFilters";
 
 const TodoList = () => {
-  const [todoList, setTodoList] = useRecoilState(todoListState);
+  const todoList = useRecoilValue(filterdTodoListState);
+  const [, setTodoList] = useRecoilState(todoListState);
   const [title, setTitle] = useState("");
 
   const handleChange = (e) => {
@@ -29,6 +32,7 @@ const TodoList = () => {
     <div>
       <h1>RecoilによるTODOアプリ</h1>
       <TodoListStats />
+      <TodoListFilters />
       <div>
         <input type="text" value={title} onChange={handleChange} />
         <button onClick={addItem}>Add</button>

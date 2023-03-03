@@ -2,7 +2,7 @@ import React from "react";
 import { useRecoilState } from "recoil";
 import { todoListState } from "../atom";
 
-const TodoItem = ({ id, title }) => {
+const TodoItem = ({ id, title, isComplete }) => {
   const [todoList, setTodoList] = useRecoilState(todoListState);
 
   const deleteItem = () => {
@@ -28,8 +28,28 @@ const TodoItem = ({ id, title }) => {
     console.timeEnd("timer1");
   };
 
+  function hoge() {}
+
+  const hoge1 = hoge();
+  const hoge2 = hoge();
+
+  console.log(hoge1 === hoge2);
+  console.log(222222);
+
+  const toggleItemComp = () => {
+    const index = todoList.findIndex((listItem) => listItem.id === id);
+    const newItem = { id, title, isComplete: !isComplete };
+    const newTodoList = [
+      ...todoList.slice(0, index),
+      { ...newItem },
+      ...todoList.slice(index + 1),
+    ];
+    setTodoList(newTodoList);
+  };
+
   return (
     <div key={id}>
+      <button onClick={toggleItemComp}>{isComplete ? "完" : "未"}</button>
       {id}:{title}
       <button onClick={deleteItem}>削除 deleteItem</button>
       <button onClick={deleteItem2}>削除 deleteItem2</button>
