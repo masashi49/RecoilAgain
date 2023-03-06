@@ -1,0 +1,16 @@
+.container {
+  /* 名前 / 横方向 */
+  container: my-container / inline-size;
+  resize: horizontal;
+  overflow: auto;
+  min-width: 240px;
+}
+
+/* 300 ~ 400*/
+@container my-container (300px <= width) {
+  p {
+    color: #ff33cc;
+    font-size: 12.5cqw;
+    background: #000;
+  }
+}

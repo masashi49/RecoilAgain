@@ -6,6 +6,7 @@ import { getId } from "../lib/getId";
 import TodoListStats from "./TodoListStats";
 import TodoItem from "./TodoItem";
 import TodoListFilters from "./TodoListFilters";
+import AppModule from "../styles/App.module.css";
 
 const TodoList = () => {
   const todoList = useRecoilValue(filterdTodoListState);
@@ -42,6 +43,10 @@ const TodoList = () => {
           <TodoItem {...item} />
         </div>
       ))}
+      あいうえお
+      <div className={AppModule.container}>
+        <p>これはクエリです</p>
+      </div>
     </div>
   );
 };
