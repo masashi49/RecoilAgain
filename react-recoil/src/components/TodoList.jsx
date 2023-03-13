@@ -6,7 +6,7 @@ import { getId } from "../lib/getId";
 import TodoListStats from "./TodoListStats";
 import TodoItem from "./TodoItem";
 import TodoListFilters from "./TodoListFilters";
-import AppModule from "../styles/App.module.css";
+import Kirby from "./kirby/Kirby";
 
 const TodoList = () => {
   const todoList = useRecoilValue(filterdTodoListState);
@@ -31,12 +31,14 @@ const TodoList = () => {
 
   return (
     <div>
-      <h1>RecoilによるTODOアプリ</h1>
+      <button onClick={addItem}>Add</button>
+      <h1 className="m-4 text-3xl font-bold underline">Hello world!</h1>
+      <Kirby />
+      <h2>RecoilによるTODOアプリ</h2>
       <TodoListStats />
       <TodoListFilters />
       <div>
         <input type="text" value={title} onChange={handleChange} />
-        <button onClick={addItem}>Add</button>
       </div>
       {todoList?.map((item) => (
         <div key={item.id}>
@@ -44,9 +46,6 @@ const TodoList = () => {
         </div>
       ))}
       あいうえお
-      <div className={AppModule.container}>
-        <p>これはクエリです</p>
-      </div>
     </div>
   );
 };

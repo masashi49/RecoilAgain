@@ -1,0 +1,71 @@
+.bodyWrap {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.body {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  background-color: #fbf2f4;
+  border-radius: 50%;
+  box-shadow: -150px -100px 100px -30px rgb(230 110 169 / 50%) inset,
+    0px 0px 10px -5px rgb(255 255 0 / 50%) inset;
+}
+
+.eyes {
+  width: 200px;
+  display: flex;
+  justify-content: space-around;
+  margin: auto;
+  position: relative;
+  top: 80px;
+}
+.eye {
+  position: relative;
+  background: #000;
+  height: 130px;
+  width: 40px;
+  border: 1px solid #ccc;
+  border-radius: 22px 19px 30px 22px;
+  box-shadow: 0px 0px 0px 6px #000 inset, 0 -30px 11px -8px rgb(13 13 242) inset;
+}
+
+.eye:before {
+  position: absolute;
+  top: 5px;
+  left: calc(50% - 15px);
+  background: #fff;
+  width: 30px;
+  height: 40px;
+  content: "";
+  border-radius: 27px 24px 26px 23px;
+}
+
+.cheeks {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin: auto;
+  top: 50px;
+  width: 400px;
+}
+.cheek {
+  width: 80px;
+  height: 40px;
+  background-color: #f1788d;
+  border-radius: 50%;
+  rotate: -5deg;
+}
+
+/* 300 ~ 400*/
+@container kirbybody (300px <= width) {
+  p {
+    color: #ff33cc;
+    font-size: 12.5cqw;
+    background: #000;
+  }
+}
